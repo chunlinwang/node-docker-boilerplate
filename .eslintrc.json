@@ -1,0 +1,25 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020
+    },
+    "extends": ["airbnb-base", "plugin:prettier/recommended"],
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": ["error", {
+            "trailingComma": "es5",
+            "tabWidth": 2,
+            "singleQuote": true,
+            "bracketSpacing": true,
+            "arrowParens": "always"
+        }],
+        "arrow-body-style": "error",
+        "prefer-arrow-callback": "error",
+        "semi": "error"
+    },
+    "ignorePatterns": ["src/**/*.spec.js"]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "node-docker-boilerplate",
+  "version": "0.0.1",
+  "description": "Chunlin's NodeJs docker boilerplate",
+  "private": true,
+  "author": "Chunlin Wang<chunlinwang1983@gmail.com>(https://www.linkedin.com/in/chunlin-wang-b606b159/)",
+  "license": "ISC",
+  "scripts": {
+    "prepare": "cp .env.dist .env",
+    "start": "node ./bin/www",
+    "dev": "nodemon --inspect ./bin/www",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "jest .",
+    "test:watch": "jest . --watch",
+    "test:cov": "jest . --coverage",
+    "consumer:example": "node src/services/amqp/consumers/example.js"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "axios": "^0.24.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "helmet": "^4.6.0",
+    "http-errors": "^1.8.0",
+    "morgan": "~1.9.1",
+    "swagger-jsdoc": "^6.1.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "amqplib-mocks": "^1.3.0",
+    "clinic": "^9.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.14",
+    "prettier": "2.4.1",
+    "supertest": "^6.1.6"
+  }
+}

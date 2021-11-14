@@ -1,0 +1,9 @@
+const API_DEFAULT_VERSION = 'v1';
+const CAT_API_IMAGE_SEARCH_URL = '/images/search';
+const DEFAULT_PAGINATION_LIMIT = 8;
+
+module.exports = {
+  API_DEFAULT_VERSION,
+  DEFAULT_PAGINATION_LIMIT,
+  CAT_API_IMAGE_SEARCH_URL,
+};
