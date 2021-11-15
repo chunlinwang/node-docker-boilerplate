@@ -1,12 +1,7 @@
 const amqplib = require('amqplib-mocks');
-const { createAndBindExchangeConsumer, run, consumer } = require('../example');
+const { run, consumer } = require('../example');
 const {
   EXCHANGE_EXAMPLE,
-  EXCHANGE_DL_EXAMPLE,
-  QUEUE_EXAMPLE,
-  QUEUE_DL_EXAMPLE,
-  RABBITMQ_TYPE_DIRECT,
-  DL_MESSAGE_TTL,
   QUEUE_EXAMPLE_ROUTING_KEY,
 } = require('../../constants');
 const createChannel = require('../../createChannel');
@@ -39,64 +34,6 @@ describe('test example consumer.', () => {
 
   afterEach(() => {
     jest.clearAllMocks();
-  });
-
-  test('init Ex and Q for example consumer.', async () => {
-    const spyAssertExchange = jest.spyOn(ch, 'assertExchange');
-    const spyAssertQueue = jest.spyOn(ch, 'assertQueue');
-    const spyBindQueue = jest.spyOn(ch, 'bindQueue');
-
-    const result = await createAndBindExchangeConsumer(ch);
-
-    expect(spyAssertExchange).toBeCalledTimes(2);
-    expect(spyAssertExchange.mock.calls).toEqual([
-      [
-        EXCHANGE_EXAMPLE,
-        RABBITMQ_TYPE_DIRECT,
-        {
-          durable: true,
-        },
-      ],
-      [
-        EXCHANGE_DL_EXAMPLE,
-        RABBITMQ_TYPE_DIRECT,
-        {
-          durable: true,
-        },
-      ],
-    ]);
-    expect(spyAssertQueue).toBeCalledTimes(2);
-    expect(spyAssertQueue.mock.calls).toEqual([
-      [
-        QUEUE_EXAMPLE,
-        {
-          durable: true,
-          deadLetterExchange: EXCHANGE_DL_EXAMPLE,
-          deadLetterRoutingKey: QUEUE_EXAMPLE_ROUTING_KEY,
-        },
-      ],
-      [
-        QUEUE_DL_EXAMPLE,
-        {
-          durable: true,
-          deadLetterExchange: EXCHANGE_DL_EXAMPLE,
-          deadLetterRoutingKey: QUEUE_EXAMPLE_ROUTING_KEY,
-          messageTtl: DL_MESSAGE_TTL,
-        },
-      ],
-    ]);
-    expect(spyBindQueue).toBeCalledTimes(2);
-    expect(spyBindQueue.mock.calls).toEqual([
-      [QUEUE_EXAMPLE, EXCHANGE_EXAMPLE, QUEUE_EXAMPLE_ROUTING_KEY, {}],
-      [QUEUE_DL_EXAMPLE, EXCHANGE_DL_EXAMPLE, QUEUE_EXAMPLE_ROUTING_KEY, {}],
-    ]);
-
-    expect(result).toEqual({
-      consumerCount: 0,
-      exchange: EXCHANGE_EXAMPLE,
-      messageCount: 0,
-      queue: QUEUE_EXAMPLE,
-    });
   });
 
   test('check runner', async () => {

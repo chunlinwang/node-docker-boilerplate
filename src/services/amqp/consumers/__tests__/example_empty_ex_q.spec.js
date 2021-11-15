@@ -1,5 +1,5 @@
 const amqplib = require('amqplib-mocks');
-const { createAndBindExchangeConsumer, run, consumer } = require('../example');
+const { run, consumer } = require('../example');
 const {
   EXCHANGE_EXAMPLE,
   EXCHANGE_DL_EXAMPLE,

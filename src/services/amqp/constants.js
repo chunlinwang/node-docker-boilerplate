@@ -3,9 +3,9 @@ const RABBITMQ_TYPE_TOPIC = 'topic';
 const RABBITMQ_TYPE_FANOUT = 'fanout';
 const RABBITMQ_TYPE_HEADERS = 'headers';
 
-const EXCHANGE_EXAMPLE = 'example_ex';
+const EXCHANGE_EXAMPLE = 'example2_ex';
 const EXCHANGE_DL_EXAMPLE = 'example_dl_ex';
-const QUEUE_EXAMPLE = 'example_q';
+const QUEUE_EXAMPLE = 'example2_q';
 const QUEUE_DL_EXAMPLE = 'example_dl_q';
 const DL_MESSAGE_TTL = 300000; // 5 min
 const QUEUE_EXAMPLE_ROUTING_KEY = 'routing_key';
